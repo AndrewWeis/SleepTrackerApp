@@ -14,4 +14,17 @@
  * limitations under the License.
  */
 
-package com.example.android.trackmysleepquality.sleepquality
+package com.example.android.sleeptracker.sleeptracker
+
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
+import com.example.android.sleeptracker.database.SleepDatabaseDao
+
+/**
+ * ViewModel for SleepTrackerFragment.
+ */
+class SleepTrackerViewModel(
+        val database: SleepDatabaseDao,
+        application: Application) : AndroidViewModel(application) {
+}
+

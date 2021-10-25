@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package com.example.android.trackmysleepquality
+package com.example.android.sleeptracker
 
 //import androidx.room.Room
 //import androidx.test.ext.junit.runners.AndroidJUnit4
 //import androidx.test.platform.app.InstrumentationRegistry
-//import com.example.android.trackmysleepquality.database.SleepDatabase
-//import com.example.android.trackmysleepquality.database.SleepDatabaseDao
-//import com.example.android.trackmysleepquality.database.SleepNight
+//import com.example.android.sleeptracker.database.SleepDatabase
+//import com.example.android.sleeptracker.database.SleepDatabaseDao
+//import com.example.android.sleeptracker.database.SleepNight
 //import org.junit.Assert.assertEquals
 //import org.junit.After
 //import org.junit.Before
