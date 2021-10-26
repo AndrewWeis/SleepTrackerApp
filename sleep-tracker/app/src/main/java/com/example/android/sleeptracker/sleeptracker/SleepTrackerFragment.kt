@@ -22,7 +22,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.android.sleeptracker.R
 import com.example.android.sleeptracker.database.SleepDatabase
 import com.example.android.sleeptracker.databinding.FragmentSleepTrackerBinding
@@ -59,6 +61,21 @@ class SleepTrackerFragment : Fragment() {
         binding.sleepTrackerViewModel = sleepTrackerViewModel
 
         binding.lifecycleOwner = this
+
+        // Add an Observer on the state variable for Navigating when STOP button is pressed.
+        sleepTrackerViewModel.navigateToSleepQuality.observe(viewLifecycleOwner, Observer { night ->
+            night?.let {
+                // We need to get the navController from this, because button is not ready, and it
+                // just has to be a view. For some reason, this only matters if we hit stop again
+                // after using the back button, not if we hit stop and choose a quality.
+                this.findNavController().navigate(
+                    SleepTrackerFragmentDirections
+                        .actionSleepTrackerFragmentToSleepQualityFragment(night.nightId))
+                // Reset state to make sure we only navigate once, even if the device
+                // has a configuration change.
+                sleepTrackerViewModel.doneNavigating()
+            }
+        })
 
         return binding.root
     }
