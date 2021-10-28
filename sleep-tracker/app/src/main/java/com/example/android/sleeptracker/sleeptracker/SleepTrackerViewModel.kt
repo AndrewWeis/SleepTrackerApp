@@ -4,7 +4,6 @@ import android.app.Application
 import androidx.lifecycle.*
 import com.example.android.sleeptracker.database.SleepDatabaseDao
 import com.example.android.sleeptracker.database.SleepNight
-import com.example.android.sleeptracker.formatNights
 import kotlinx.coroutines.launch
 
 class SleepTrackerViewModel(
@@ -15,13 +14,6 @@ class SleepTrackerViewModel(
     private var tonight = MutableLiveData<SleepNight?>()
 
     val nights = database.getAllNights()
-
-    /**
-     * Converted nights to Spanned for displaying.
-     */
-    val nightsString = Transformations.map(nights) { nights ->
-        formatNights(nights, application.resources)
-    }
 
     /**
      * If tonight has not been set, then the START button should be visible.
