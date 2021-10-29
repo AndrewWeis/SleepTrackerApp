@@ -14,13 +14,17 @@ This app demonstrates the following views and techniques:
 * Room database
 * DAO
 * Coroutines
+* Recycler View
 
-It also uses and builds on the following techniques from previous lessons:
+It also uses and builds on the following techniques:
 * Transformation map
 * Data Binding in XML files
 * ViewModel Factory
 * Using Backing Properties to protect MutableLiveData
 * Observable state LiveData variables to trigger navigation
+* DiffUtil 
+* Binding Adapters
+* GridLayout
 
 ## Screenshots
 
